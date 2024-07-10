@@ -1,0 +1,27 @@
+name: Kubernetes Deployment
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch as needed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Deploy the Kubernetes Secret
+      - name: Deploy Secret
+        run: |
+          kubectl apply -f secret.yaml
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}  # If using external cluster config
+
+      # Deploy the Kubernetes Application (nginx deployment)
+      - name: Deploy Application
+        run: |
+          kubectl apply -f nginx-deployment.yaml
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}  # If using external cluster config
