@@ -23,9 +23,9 @@ jobs:
           chmod 700 get_helm.sh
           ./get_helm.sh
 
-      - name: Deploy nginx with Helm
-        run: |
-          helm upgrade --install my-nginx ./my-nginx-chart --namespace default --force
+      # - name: Deploy nginx with Helm
+      #   run: |
+      #     helm upgrade --install my-nginx ./my-nginx-chart --namespace default --force
 
   deploy-secrets:
     runs-on: ubuntu-latest
