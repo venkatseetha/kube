@@ -25,7 +25,7 @@ jobs:
 
       - name: Deploy nginx with Helm
         run: |
-          helm upgrade --install my-nginx ./nginx-chart --namespace default --force
+          helm upgrade --install my-nginx ./my-nginx-chart --namespace default --force
 
   deploy-secrets:
     runs-on: ubuntu-latest
