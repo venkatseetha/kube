@@ -1,27 +1,43 @@
-name: Kubernetes Deployment
+name: Deploy to Minikube
 
 on:
   push:
     branches:
-      - main  # Adjust the branch as needed
+      - main
 
 jobs:
-  deploy:
+  deploy-nginx:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Deploy the Kubernetes Secret
-      - name: Deploy Secret
+      - name: Set up Minikube
         run: |
-          kubectl apply -f secret.yaml
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}  # If using external cluster config
+          minikube start
+          minikube kubectl -- apply -f ./nginx-deployment.yaml
 
-      # Deploy the Kubernetes Application (nginx deployment)
-      - name: Deploy Application
+      - name: Install Helm
         run: |
-          kubectl apply -f nginx-deployment.yaml
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}  # If using external cluster config
+          curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+          chmod 700 get_helm.sh
+          ./get_helm.sh
+
+      - name: Deploy nginx with Helm
+        run: |
+          helm upgrade --install my-nginx ./my-nginx-chart --namespace default
+
+  deploy-secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Minikube
+        run: |
+          minikube start
+          kubectl apply -f ./secret.yaml
+
+      - name: Verify secrets deployment
+        run: |
+          kubectl get secrets my-secret
