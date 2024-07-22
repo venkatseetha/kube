@@ -22,3 +22,4 @@ https://docs.mulesoft.com/general/java-support
 The latest version of MuleSoft's ESB (Enterprise Service Bus) that supports Java 1.8 is Mule 4.6 LTS. This version supports Java 8, Java 11, and Java 17, with extended support for Java 8 until February 2025​ (MuleSoft Documentation)​​ (MuleSoft Documentation)​.
 
 To stay updated with patches and documentation for MuleSoft ESB, you can refer to their official documentation and support pages. MuleSoft frequently updates its platform to align with Java's long-term support release cadence, ensuring improved performance, security, and compliance​ (MuleSoft Documentation)​​ (MuleSoft Documentation)​.
+https://docs.redhat.com/en/documentation/red_hat_jboss_enterprise_application_platform/8.0
