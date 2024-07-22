@@ -1,0 +1,20 @@
+The latest version of JBoss Enterprise Application Platform (EAP) is 8.0, which is designed to support Jakarta EE 10 and comes with various new features and improvements, especially in cloud deployment and security enhancements. However, JBoss EAP 8.0 primarily recommends using JDK 17, and support for Java SE 21 is planned for a future release.
+
+If you need support for Java 1.8, JBoss EAP 7.4 is the recommended version. JBoss EAP 7.4 supports Jakarta EE 8 and is compatible with Java SE 8, making it suitable for applications that rely on Java 1.8. This version includes various updates and fixes, and it continues to receive maintenance patches.
+
+For patching and updating JBoss EAP, Red Hat provides detailed guidelines and tools to ensure smooth updates and management of patch histories. This includes the ability to apply cumulative patches and roll back if necessary.
+
+You can find detailed documentation and support on the Red Hat Customer Portal, which provides comprehensive guides and resources for both JBoss EAP 7.4 and 8.0, including information on supported configurations, migration tools, and patch management.
+
+For further information, you can visit the following resources:
+
+JBoss EAP 8.0 Features
+Patching and Upgrading Guide
+Support for Java 8 in EAP
+These resources provide detailed insights into the capabilities and maintenance of JBoss EAP, ensuring you can make an informed decision for your Java 1.8 applications.
+
+
+
+
+
+
